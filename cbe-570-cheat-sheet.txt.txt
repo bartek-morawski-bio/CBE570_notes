@@ -213,6 +213,43 @@ See how busy a NVIDIA gpu is
 
 
 
+PyMOL Commands from HW1.Q3
+
+
+Select residues within distance of another residue
+	select close_residues, (resi <target res num>) around <distance>
+
+Changing the background color
+	bg_color <color>
+
+Creating a nice image
+	# spectrum coloring from N-terminus (blue) to C-terminus (red)
+	spectrum count, rainbow, minimum=1, maximum=-1
+	
+	# adjust cartoon settings
+	set cartoon_fancy_helices, 1
+	set cartoon_highlight_color, grey70
+	set cartoon_smooth_loops, 1
+
+	# improve lighting and depth
+	set ray_trace_mode, 1
+	set ambient, 0.6
+	set specular, 1
+	set depth_cue, 0  # Disable background fading for clarity
+	
+	# add shadows and quality enchancements
+	set ray_shadows, 1
+	set antialias, 2
+	set ray_trace_gain, 0.1
+
+	# ray trace the image
+	ray 1600, 1200
+
+	# save the image into your working directory
+	png <name>, dpi=300, ray=1
+
+
+
 
 
 
